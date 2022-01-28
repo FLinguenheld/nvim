@@ -5,7 +5,7 @@
 ****
 
 ## Install
->sudo add-apt-repository ppa:neovim-ppa/unstable  
+>sudo add-apt-repository ppa:neovim-ppa/stable
 >sudo apt-get update  
 >sudo apt-get install neovim
 
@@ -24,9 +24,9 @@
 ##### Active fonts in terminal (for airline) then active in terminal options
 >sudo apt-get install fonts-powerline
 
-##### Fzf
->sudo apt-get install fzf  
+##### Telescope
 >sudo apt-get install ripgrep
+>sudo apt-get install fd-find
 
 ##### Coc
 >sudo apt-get install nodejs npm  

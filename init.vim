@@ -9,16 +9,17 @@ Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
+Plug 'IMOKURI/line-number-interval.nvim'
+Plug 'tpope/vim-commentary'		" gcc
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-telescope/telescope-file-browser.nvim'
-Plug 'IMOKURI/line-number-interval.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-Plug 'tpope/vim-commentary'		" gcc
 "Plug 'preservim/tagbar'
 
 call plug#end()
@@ -63,8 +64,8 @@ set noerrorbells
 " -- Active le comportement habituel de backspace
 set backspace=indent,eol,start
 
-" -- Ferme l'arbre de vim après utilisation(doublon avec coc-explorer)
-let g:netrw_fastbrowse = 0
+" " -- Ferme l'arbre de vim après utilisation(doublon avec coc-explorer)
+" let g:netrw_fastbrowse = 0
 
 " -- Active la souris
 set mouse=a
