@@ -18,7 +18,7 @@
 >sudo apt-get install python3-pip  
 >pip install -U jedi-language-server
 
->python3 -m pip install --user --upgrade pynvim  
+>pip install --user --upgrade pynvim  
 >pip install neovim
 
 ##### Active fonts in terminal (for airline) then active in terminal options
