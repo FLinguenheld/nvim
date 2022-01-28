@@ -18,13 +18,18 @@ nnoremap dB d0		" Coupe du curseur au début de la ligne
 nnoremap yB y0		" Copie du curseur au début de la ligne
 
 " -- Clipboard
-vnoremap <C-c> "+y
-"nnoremap <leader>Y "*y
-nnoremap <leader>p "*p												" Past from desk clipboard
+" Copy nvim to desk clipboard
+vnoremap <leader>c "+y
+" Past from desk clipboard
+nnoremap <leader>v "*p
+
+nnoremap <leader>p "1p
+nnoremap <leader>P "2p
+" History
 nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>		" List of yanked words
 
 " -- Terminal mode
-tnoremap <Esc> <C-\><C-n>	" Permet de quitter le mode terminal avec un double cligue Esc
+tnoremap <Esc> <C-\><C-n>	" Permet de quitter le mode terminal avec un double clique Esc
 
 " -- Enregistre et lance python
 "autocmd FileType python map <buffer> <F6> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -49,14 +54,17 @@ nnoremap <C-down> <C-w>j
 nnoremap <C-up> <C-w>k
 nnoremap <C-right> <C-w>l
 
-" Better window navigation
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
-
 " TAB in general mode will move to text buffer
 nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
 
+
+
+
+" −−−−−−−−−−−−−−−− MOVE −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
