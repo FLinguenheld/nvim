@@ -5,38 +5,31 @@
 ****
 
 ## Install
->sudo add-apt-repository ppa:neovim-ppa/stable  
->sudo apt-get update  
->sudo apt-get install neovim
+>sudo dnf install -y neovim python3-neovim
 
 ## Requirements
 
-##### Git
->sudo apt-get install git
-
 ##### Python/Pip
->sudo apt-get install python3-pip  
->pip install -U jedi-language-server
-
 >pip install --user --upgrade pynvim  
+>pip install -U jedi-language-server  
 >pip install neovim
 
 ##### Active fonts in terminal (for airline) then active in terminal options
->sudo apt-get install fonts-powerline
+>https://fedoramagazine.org/add-power-terminal-powerline/
 
 ##### Telescope
->sudo apt-get install ripgrep  
->sudo apt-get install fd-find
+>sudo dnf install ripgrep  
+>sudo dnf install fd-find
 
 ##### Coc
->sudo apt-get install nodejs npm  
+>sudo dnf install -y nodejs
 >sudo npm install -g neovim
 
 >:CocList extensions (to see extensions already install)  
 >:Checkhealth (to see dependances)
 
 ##### Clipboard
->sudo apt-get install xclip
+>sudo dnf install xclip
 
 
 ##### VimPlug
