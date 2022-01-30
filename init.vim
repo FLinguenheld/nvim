@@ -1,18 +1,27 @@
- -- Force le chemin pour python (Pour les env virtuels)
-" let g:python_host_prog = '/usr/bin/python'
-" let g:python3_host_prog = '/usr/bin/python3'
+"let g:python_host_prog = '/usr/bin/python'
+"let g:python3_host_prog = '/usr/bin/python3'
 
 " −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 call plug#begin()
 Plug 'joshdick/onedark.vim'
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
-Plug 'IMOKURI/line-number-interval.nvim'
 Plug 'tpope/vim-commentary'		" gcc
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'wbthomason/packer.nvim'
+Plug 'neovim/nvim-lspconfig'
+" Completion
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+
+" For luasnip users.
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
+Plug 'kyazdani42/nvim-web-devicons' " A CONFIRMER −−−−−−−−−−−−−−−−−−−−−−
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -20,21 +29,34 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-"Plug 'preservim/tagbar'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" :call mkdp#util#install()
 
+"Plug 'preservim/tagbar'
 call plug#end()
 
 " −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 source $HOME/.config/nvim/confFlo/onedark.vim
+source $HOME/.config/nvim/confFlo/lsp.lua
 source $HOME/.config/nvim/confFlo/airline.vim
 source $HOME/.config/nvim/confFlo/mapping.vim
-source $HOME/.config/nvim/confFlo/coc.vim
 source $HOME/.config/nvim/confFlo/linenumber.vim
-"source $HOME/.config/nvim/confFlo/fzf.vim
 source $HOME/.config/nvim/confFlo/starty.vim
 " −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 
-set relativenumber 
+" Lsp completion
+set completeopt=menu,menuone,noselect
+
+
+
+
+
+
+
+
+
+
+
 " set cursorcolumn
 set wrap			" Affiche les lignes trop longues sur plusieurs lignes
 set scrolloff=5		" Affiche mini 3 lignes autour du curseur
@@ -64,12 +86,12 @@ set noerrorbells
 " -- Active le comportement habituel de backspace
 set backspace=indent,eol,start
 
-" " -- Ferme l'arbre de vim après utilisation(doublon avec coc-explorer)
-" let g:netrw_fastbrowse = 0
-
 " -- Active la souris
 set mouse=a
 
 " -- Pep8
 highlight ColorColumn ctermbg=gray
 set colorcolumn=118
+
+
+
