@@ -4,9 +4,6 @@
 
 ****
 
-## Install
->sudo dnf install -y neovim python3-neovim
-
 ## Requirements
 
 ##### Python/Pip
@@ -28,8 +25,8 @@
 Install font nerd (hack)  
 Add hack in ~/.fonts  
 Enable in terminal options
->https://fedoramagazine.org/add-power-terminal-powerline/
->https://github.com/ryanoasis/nerd-fonts
+>https://fedoramagazine.org/add-power-terminal-powerline/  
+>https://github.com/ryanoasis/nerd-fonts  
 >https://stribny.name/blog/2020/04/get-some-beautiful-programming-fonts-for-your-editor-and-terminal-in-fedora/
 
 ##### VimPlug
