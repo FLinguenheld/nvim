@@ -49,14 +49,6 @@ set completeopt=menu,menuone,noselect
 
 
 
-
-
-
-
-
-
-
-
 " set cursorcolumn
 set wrap			" Affiche les lignes trop longues sur plusieurs lignes
 set scrolloff=5		" Affiche mini 3 lignes autour du curseur
@@ -92,6 +84,3 @@ set mouse=a
 " -- Pep8
 highlight ColorColumn ctermbg=gray
 set colorcolumn=118
-
-
-
