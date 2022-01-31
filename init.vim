@@ -1,5 +1,3 @@
-"let g:python_host_prog = '/usr/bin/python'
-"let g:python3_host_prog = '/usr/bin/python3'
 
 " −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 call plug#begin()
@@ -21,7 +19,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
-Plug 'kyazdani42/nvim-web-devicons' " A CONFIRMER −−−−−−−−−−−−−−−−−−−−−−
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -31,6 +28,9 @@ Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " :call mkdp#util#install()
+
+Plug 'kyazdani42/nvim-web-devicons'		" Needs nerd font like hack
+Plug 'ryanoasis/vim-devicons'
 
 "Plug 'preservim/tagbar'
 call plug#end()
