@@ -32,6 +32,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'kyazdani42/nvim-web-devicons'		" Needs nerd font like hack
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'preservim/vimux'
+
 "Plug 'preservim/tagbar'
 call plug#end()
 
@@ -47,6 +49,8 @@ source $HOME/.config/nvim/confFlo/starty.vim
 " Lsp completion
 set completeopt=menu,menuone,noselect
 
+" highlight yanked text
+au TextYankPost * silent! lua vim.highlight.on_yank()
 
 
 " set cursorcolumn
