@@ -7,7 +7,6 @@ local opt = {noremap = true }
 keymap('', 'B', '^', {})	-- Applique aux modes Normal, Visual, Select, Operator-pending
 keymap('', 'W', '$', {})
 
-
 -- Terminal −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 keymap('t', '<ESC>', '<C-\\><C-n>', opt)
 
@@ -17,6 +16,7 @@ keymap('n', '<C-P>',		'"*p', opt)		-- Past from desk to nvim
 
 keymap('n', '<leader>p',	'"1p', opt)
 keymap('n', '<leader>P',	'"2p', opt)
+keymap('n', '<leader>y',	':Telescope registers<CR>', opt)
 
 -- Window −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 keymap('n', '<M-left>',		':vertical resize -2<CR>', opt)
@@ -30,14 +30,14 @@ keymap('n', '<C-up>',		'<C-w>k<CR>', opt)
 keymap('n', '<C-right>',	'<C-w>l<CR>', opt)
 
 -- LSPCONFIG −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-keymap('n', 'gd',		':lua vim.lsp.buf.definition() <CR>', opt)
-keymap('n', 'gD',		':lua vim.lsp.buf.declaration() <CR>', opt)
-keymap('n', 'gi',		':lua vim.lsp.buf.implementation() <CR>', opt)
-keymap('n', 'gw',		':lua vim.lsp.buf.document_symbol() <CR>', opt)
-keymap('n', 'gW',		':lua vim.lsp.buf.workspace_symbol() <CR>', opt)
-keymap('n', 'gr',		':lua vim.lsp.buf.references() <CR>', opt)
-keymap('n', 'gt',		':lua vim.lsp.buf.type_definition() <CR>', opt)
-keymap('n', 'K',		':lua vim.lsp.buf.hover() <CR>', opt)
+keymap('n', 'gd',		    ':lua vim.lsp.buf.definition() <CR>', opt)
+keymap('n', 'gD',		    ':lua vim.lsp.buf.declaration() <CR>', opt)
+keymap('n', 'gi',		    ':lua vim.lsp.buf.implementation() <CR>', opt)
+keymap('n', 'gw',		    ':lua vim.lsp.buf.document_symbol() <CR>', opt)
+keymap('n', 'gW',		    ':lua vim.lsp.buf.workspace_symbol() <CR>', opt)
+keymap('n', 'gr',		    ':lua vim.lsp.buf.references() <CR>', opt)
+keymap('n', 'gt',		    ':lua vim.lsp.buf.type_definition() <CR>', opt)
+keymap('n', 'K',		    ':lua vim.lsp.buf.hover() <CR>', opt)
 keymap('n', '<C-k>',		':lua vim.lsp.buf.signature_help() <CR>', opt)
 keymap('n', '<leader>af',	':lua vim.lsp.buf.code_action() <CR>', opt)
 keymap('n', '<leader>rn',	':lua vim.lsp.buf.rename() <CR>', opt)
@@ -62,10 +62,11 @@ keymap('n', '<leader>vc',	':VimuxCloseRunner<CR>', opt)
 keymap('n', '<leader>vC',	':VimuxClearTerminalScreen<CR>', opt)
 keymap('n', '<leader>vx',	':VimuxInterruptRunner<CR>', opt)
 
-	keymap('n', '<leader>vi',	':VimuxInspectRunner<CR>', opt)
-		keymap('n', '<leader>vz',	':VimuxZoomRunner<CR>', opt)
+keymap('n', '<leader>vi',	':VimuxInspectRunner<CR>', opt)
+keymap('n', '<leader>vz',	':VimuxZoomRunner<CR>', opt)
 
 -- HOP −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-keymap('', '.', ':HopWord<CR>', opt)
--- keymap('', ';', ':HopLineStart<CR>', opt)
-keymap('', ';', ':HopLine<CR>', opt)
+keymap('', '.',             '<cmd>HopWord<CR>', opt)
+keymap('', '<leader>.',     '<cmd>HopChar1<CR>', opt)
+keymap('', '<leader>;',     '<cmd>HopLine<CR>', opt)
+keymap('', ';',             '<cmd>HopLineStart<CR>', opt)

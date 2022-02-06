@@ -9,7 +9,7 @@ require('packer').startup(function()
 	use 'goolord/alpha-nvim'				-- A configurer !!!
 	use 'kyazdani42/nvim-web-devicons'		-- Need nerd font like hack
 	use 'nvim-lualine/lualine.nvim'
-	-- Plug 'ryanoasis/vim-devicons'	-- Nécessaire ???
+	use 'ryanoasis/vim-devicons'	-- Nécessaire ???
 
 	-- TreeSitter
 	use 'nvim-treesitter/nvim-treesitter'
@@ -40,10 +40,6 @@ require('packer').startup(function()
 	end
 )
 
-require('confFlo/keybindings')
-require('confFlo/packages')
-require('confFlo/themes')
-
 
 -- Ignore compiled files
 vim.opt.wildignore = "__pycache__"
@@ -72,20 +68,6 @@ vim.opt.showmode = false	-- Textes Insert/Visual en doublon avec powerline
 -- Pep8
 vim.wo.colorcolumn = '118'
 
--- Across the board
-vim.opt.formatoptions = vim.opt.formatoptions
-  - "a" -- Auto formatting is BAD.
-  - "t" -- Don't auto format my code. I got linters for that.
-  + "c" -- In general, I like it when comments respect textwidth
-  + "q" -- Allow formatting comments w/ gq
-  - "o" -- O and o, don't continue comments
-  + "r" -- But do continue when pressing enter.
-  + "n" -- Indent past the formatlistpat, not underneath it.
-  + "j" -- Auto-remove comments if possible.
-  - "2" -- I'm not in gradeschool anymore
-
-
-
 -- Highlight yank
 vim.api.nvim_exec(
     [[
@@ -97,10 +79,28 @@ vim.api.nvim_exec(
     false
 )
 
+-- Text behaviour
+vim.opt.formatoptions = vim.opt.formatoptions
+  - "a" -- Auto formatting is BAD.
+  - "t" -- Don't auto format my code. I got linters for that.
+  + "c" -- In general, I like it when comments respect textwidth
+  + "q" -- Allow formatting comments w/ gq
+  - "o" -- O and o, don't continue comments
+  + "r" -- But do continue when pressing enter.
+  + "n" -- Indent past the formatlistpat, not underneath it.
+  + "j" -- Auto-remove comments if possible.
+  - "2" -- I'm not in gradeschool anymore
+
+-- vim.o.formatoptions = vim.o.formatoptions .. 'tcrqnj'
+-- vim.opt.formatoptions:remove { "o" }
+
+require('confFlo/packages')
+require('confFlo/keybindings')
+require('confFlo/themes')
 
 
--- TEST -−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-local function blah()
-	print "Hello world !\n"
-end
--- TEST -−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+-- -- TEST -−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+-- local function blah()
+-- 	print "Hello world !\n"
+-- end
+-- -- TEST -−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
