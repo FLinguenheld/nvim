@@ -9,7 +9,7 @@ require('packer').startup(function()
 	use 'goolord/alpha-nvim'				-- A configurer !!!
 	use 'kyazdani42/nvim-web-devicons'		-- Need nerd font like hack
 	use 'nvim-lualine/lualine.nvim'
-	use 'ryanoasis/vim-devicons'	-- Nécessaire ???
+	use 'ryanoasis/vim-devicons'	        -- Nécessaire ???
 
 	-- TreeSitter
 	use 'nvim-treesitter/nvim-treesitter'
@@ -94,9 +94,9 @@ vim.opt.formatoptions = vim.opt.formatoptions
 -- vim.o.formatoptions = vim.o.formatoptions .. 'tcrqnj'
 -- vim.opt.formatoptions:remove { "o" }
 
-require('confFlo/packages')
-require('confFlo/keybindings')
-require('confFlo/themes')
+require('packages')
+require('keybindings')
+require('themes')
 
 
 -- -- TEST -−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−

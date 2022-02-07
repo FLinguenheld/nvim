@@ -6,12 +6,17 @@
 #### Requirements
 
 ##### Python/Pip
+>sudo dnf install python3-pip
 >pip install --user --upgrade pynvim  
 >pip install neovim
 
 ##### Nodejs
->sudo dnf install -y nodejs  
+>sudo dnf install  nodejs  
 >sudo npm install -g neovim
+
+##### Treesitter
+>sudo dnf groupinstall 'Development Tools'
+>sudo dnf install gcc-c++
 
 ##### Telescope
 >sudo dnf install ripgrep  
@@ -29,9 +34,7 @@ Enable in terminal options
 >https://stribny.name/blog/2020/04/get-some-beautiful-programming-fonts-for-your-editor-and-terminal-in-fedora/
 
 ##### Packer
->git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-> ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
+>https://github.com/wbthomason/packer.nvim
 
 ****
 #### Keys
