@@ -1,2 +1,4 @@
 plugin/
 .git/
+package-lock.json
+

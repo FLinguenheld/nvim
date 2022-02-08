@@ -6,7 +6,7 @@
 #### Requirements
 
 ##### Python/Pip
->sudo dnf install python3-pip
+>sudo dnf install python3-pip  
 >pip install --user --upgrade pynvim  
 >pip install neovim
 
@@ -15,7 +15,7 @@
 >sudo npm install -g neovim
 
 ##### Treesitter
->sudo dnf groupinstall 'Development Tools'
+>sudo dnf groupinstall 'Development Tools'  
 >sudo dnf install gcc-c++
 
 ##### Telescope
