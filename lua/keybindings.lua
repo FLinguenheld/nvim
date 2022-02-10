@@ -44,43 +44,29 @@ keymap('n', '<C-right>',	'<C-w>l<CR>', opt)
 
 -- TELESCOPE −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 
-function Test(title, hidden_file, folder)
-
-    require('telescope.builtin').find_files{
-        cwd = folder,
-        hidden = hidden_file,
-        prompt_title = title,
-        prompt_prefix = "> ",
-        sorting_strategy = "descending",
-    }
-end
-
-
-
 -- Recherche dossier courant
-keymap('n', '<leader>ff',	'<cmd>lua Test("Current folder", false, "") <CR>', opt)
-keymap('n', '<leader>fF',	'<cmd>lua Test("Current folder & hidden files", true, "") <CR>', opt)
+keymap('n', '<leader>ff',	'<cmd>lua findFiles_1()<CR>', opt)
+keymap('n', '<leader>fF',	'<cmd>lua findFiles_2()<CR>', opt)
+
 -- Recherche home 
-keymap('n', '<leader>Ff',	'<cmd>lua Test("Home", false, "~/") <CR>', opt)
-keymap('n', '<leader>FF',	'<cmd>lua Test("Home & hidden files", true, "~/") <CR>', opt)
---
--- keymap('n', '<leader>Ff',	'<cmd>lua require("telescope.builtin").find_files({prompt="prout", cwd="~/",}) <CR>', opt)
--- keymap('n', '<leader>FF',	'<cmd>lua require("telescope.builtin").find_files({cwd="~/",hidden=true})<CR>', opt)
+keymap('n', '<leader>fç',	'<cmd>lua findFiles_Home(false)<CR>', opt)
+keymap('n', '<leader>fÇ',	'<cmd>lua findFiles_Home(true)<CR>', opt)
+
 -- Recherche dossier
 keymap('n', '<leader>fr',	'<cmd>lua require "telescope".extensions.file_browser.file_browser() <CR>', opt)
 keymap('n', '<leader>fR',	'<cmd>lua require "telescope".extensions.file_browser.file_browser({hidden=true}) <CR>', opt)
 
--- Grep dossier
+-- Grep
 keymap('n', '<leader>fg',	'<cmd>lua require("telescope.builtin").live_grep() <CR>', opt)
-keymap('n', '<leader>fG',	'<cmd>lua require("telescope.builtin").live_grep({hidden=true, cwd="~/"}) <CR>', opt)
--- Grep dossier home
-keymap('n', '<leader>Fg',	'<cmd>lua require("telescope.builtin").live_grep() <CR>', opt)
-keymap('n', '<leader>FG',	'<cmd>lua require("telescope.builtin").live_grep({hidden=true, cwd="~/"}) <CR>', opt)
+keymap('n', '<leader>fG',	'<cmd>lua liveGrep_Home() <CR>', opt)
+keymap('n', '<leader>fs',	'<cmd>lua require("telescope.builtin").grep_string() <CR>', opt)
 
+-- 
 keymap('n', '<leader>fb',	'<cmd>lua require("telescope.builtin").buffers() <CR>', opt)
-keymap('n', '<leader>fh',	'<cmd>lua require("telescope.builtin").help_tags() <CR>', opt)
+keymap('n', '<leader>fH',	'<cmd>lua require("telescope.builtin").help_tags() <CR>', opt)
 
-keymap('n', '<leader>fhh',	'<cmd>lua require("telescope.builtin").highlights() <CR>', opt)
+--
+keymap('n', '<leader>fh',	'<cmd>lua require("telescope.builtin").highlights() <CR>', opt)
 keymap('n', '<leader>fm',	'<cmd>lua require("telescope.builtin").marks() <CR>', opt)
 
 
@@ -100,7 +86,7 @@ keymap('n', '<leader>vz',	':VimuxZoomRunner<CR>', opt)
 keymap('', '.',             '<cmd>HopWord<CR>', opt)
 keymap('', '<leader>.',     '<cmd>HopChar1<CR>', opt)
 keymap('', '<leader>;',     '<cmd>HopLineStart<CR>', opt)
-keymap('', ';',             '<cmd>HopLine<CR>', opt)
+keymap('', '<space>',             '<cmd>HopLine<CR>', opt)
 
 
 
@@ -136,7 +122,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn',     '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca',     '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr',             '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f',       '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fo',       '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and

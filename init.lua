@@ -46,8 +46,7 @@ vim.opt.wildignore = "__pycache__"
 vim.opt.wildignore = vim.opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
 
 -- Tabs
-vim.opt.autoindent = true
-vim.opt.cindent = true
+-- vim.opt.cindent = true
 vim.opt.wrap = true
 
 vim.opt.tabstop = 4
@@ -66,7 +65,7 @@ vim.opt.splitbelow = true	-- Prefer windows splitting to the bottom
 vim.opt.showmode = false	-- Textes Insert/Visual en doublon avec powerline
 
 -- Pep8
-vim.wo.colorcolumn = '118'
+vim.wo.colorcolumn = '115'
 
 -- Highlight yank
 vim.api.nvim_exec(
