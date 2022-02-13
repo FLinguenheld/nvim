@@ -1,11 +1,10 @@
--- Leader −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-vim.g.mapleader = ','
-
 local keymap = vim.api.nvim_set_keymap
 local opt = {noremap = true }
 
 keymap('', 'B', '^', {})	-- Applique aux modes Normal, Visual, Select, Operator-pending
 keymap('', 'W', '$', {})
+
+keymap('n', 'l', '.', opt)  -- Derniere commande
 
 -- Terminal −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 keymap('t', '<ESC>', '<C-\\><C-n>', opt)
@@ -29,21 +28,7 @@ keymap('n', '<C-down>',		'<C-w>j<CR>', opt)
 keymap('n', '<C-up>',		'<C-w>k<CR>', opt)
 keymap('n', '<C-right>',	'<C-w>l<CR>', opt)
 
--- LSPCONFIG −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
--- keymap('n', 'gd',		    ':lua vim.lsp.buf.definition() <CR>', opt)
--- keymap('n', 'gD',		    ':lua vim.lsp.buf.declaration() <CR>', opt)
--- keymap('n', 'gi',		    ':lua vim.lsp.buf.implementation() <CR>', opt)
--- keymap('n', 'gw',		    ':lua vim.lsp.buf.document_symbol() <CR>', opt)
--- keymap('n', 'gW',		    ':lua vim.lsp.buf.workspace_symbol() <CR>', opt)
--- keymap('n', 'gr',		    ':lua vim.lsp.buf.references() <CR>', opt)
--- keymap('n', 'gt',		    ':lua vim.lsp.buf.type_definition() <CR>', opt)
--- keymap('n', 'K',		    ':lua vim.lsp.buf.hover() <CR>', opt)
--- keymap('n', '<C-k>',		':lua vim.lsp.buf.signature_help() <CR>', opt)
--- keymap('n', '<leader>af',	':lua vim.lsp.buf.code_action() <CR>', opt)
--- keymap('n', '<leader>rn',	':lua vim.lsp.buf.rename() <CR>', opt)
-
 -- TELESCOPE −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-
 -- Recherche dossier courant
 keymap('n', '<leader>ff',	'<cmd>lua findFiles_1()<CR>', opt)
 keymap('n', '<leader>fF',	'<cmd>lua findFiles_2()<CR>', opt)
@@ -52,9 +37,12 @@ keymap('n', '<leader>fF',	'<cmd>lua findFiles_2()<CR>', opt)
 keymap('n', '<leader>fç',	'<cmd>lua findFiles_Home(false)<CR>', opt)
 keymap('n', '<leader>fÇ',	'<cmd>lua findFiles_Home(true)<CR>', opt)
 
+-- Old files
+keymap('n', '<leader>fo',   ':Telescope oldfiles <CR>', opt)
+
 -- Recherche dossier
 keymap('n', '<leader>fr',	'<cmd>lua require "telescope".extensions.file_browser.file_browser() <CR>', opt)
-keymap('n', '<leader>fR',	'<cmd>lua require "telescope".extensions.file_browser.file_browser({hidden=true}) <CR>', opt)
+keymap('n', '<leader>fR',	'<cmd>ua require "telescope".extensions.file_browser.file_browser({hidden=true}) <CR>', opt)
 
 -- Grep
 keymap('n', '<leader>fg',	'<cmd>lua require("telescope.builtin").live_grep() <CR>', opt)
@@ -68,6 +56,8 @@ keymap('n', '<leader>fH',	'<cmd>lua require("telescope.builtin").help_tags() <CR
 --
 keymap('n', '<leader>fh',	'<cmd>lua require("telescope.builtin").highlights() <CR>', opt)
 keymap('n', '<leader>fm',	'<cmd>lua require("telescope.builtin").marks() <CR>', opt)
+
+
 
 
 -- VIMUX −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
@@ -86,7 +76,7 @@ keymap('n', '<leader>vz',	':VimuxZoomRunner<CR>', opt)
 keymap('', '.',             '<cmd>HopWord<CR>', opt)
 keymap('', '<leader>.',     '<cmd>HopChar1<CR>', opt)
 keymap('', '<leader>;',     '<cmd>HopLineStart<CR>', opt)
-keymap('', '<space>',             '<cmd>HopLine<CR>', opt)
+keymap('', '<space>',       '<cmd>HopLine<CR>', opt)
 
 
 
@@ -122,7 +112,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn',     '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca',     '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr',             '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fo',       '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fo',     '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and

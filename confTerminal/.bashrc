@@ -24,6 +24,10 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
+unset rc
+
+
+# Powerline --
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
@@ -32,4 +36,5 @@ if [ -f `which powerline-daemon` ]; then
 fi
 
 
-unset rc
+# Alias --
+alias vi='nvim'

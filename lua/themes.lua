@@ -1,13 +1,34 @@
--- STARTER −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-require'alpha'.setup(require'alpha.themes.startify'.config)
+
+-- INDENT BLANK LINE −−-−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+vim.opt.list = true
+vim.opt.listchars:append("space: ")
+vim.opt.listchars:append("eol:↴")
+vim.opt.termguicolors = true
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#363646 gui=nocombine]] -- Même gris que les line numbers
 
 
--- LUALINE −−−-−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+require("indent_blankline").setup {
+
+    char_highlight_list = {
+        "IndentBlanklineIndent1",
+    },
+
+    space_char_blankline = " ",
+    show_current_context = true,
+    -- show_current_context_start = true,
+    -- show_end_of_line = true,
+    use_treesitter = true,
+}
+
+
+-- LUALINE −−−-−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    -- theme = 'auto',
-    theme = 'wombat',
+    theme = 'auto',
+    -- theme = 'wombat',
+    -- theme = 'material',
+
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
@@ -32,25 +53,3 @@ require('lualine').setup {
   tabline = {},
   extensions = {}
 }
-
-
--- THEME −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-require("github-theme").setup({
-	theme_style = "dark_default",
-	function_style = "italic",
-	sidebars = {"qf", "vista_kind", "terminal", "packer"},
-
-	-- Change the "hint" color to the "orange" color,
-	-- and make the "error" color bright red
-	colors = {hint = "orange", error = "#ff0000"},
-
-	-- Overwrite the highlight groups
-	overrides = function(c)
-	return {
-	  htmlTag = {fg = c.red, bg = "#282c34", sp = c.hint, style = "underline"},
-	  DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
-	  -- this will remove the highlight groups
-	  TSField = {},
-	}
-end
-})
