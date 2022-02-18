@@ -34,17 +34,45 @@ Enable in terminal options
 >https://stribny.name/blog/2020/04/get-some-beautiful-programming-fonts-for-your-editor-and-terminal-in-fedora/
 
 ##### Packer
->https://github.com/wbthomason/packer.nvim
+>https://github.com/wbthomason/packer.nvim  
+
+##### Help
+>https://gist.github.com/awidegreen/3854277  
+>https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim  
+>https://github.com/ChristianChiarulli/nvim/tree/master/lua/user  
+
 
 ****
 #### Keys
-|  Comments    |                           |
-|--------------|---------------------------|
-|gcc           |Comment line               |
-|gbc           |Comment bloc line          |
-|gcO           |Comment above              |
-|gco           |Comment underneath         |
-|gcA           |Comment on right           |
+|  Comp            |                           |
+|------------------|---------------------------|
+|`<C-f>`           |Scroll -4                  |
+|`<C-F>`           |Scroll +4                  |
+|`<C-e>`           |Exit                       |
+|`<C-y> or enter`  |Confirm                    |
+
+
+|  Comments      |                           |
+|----------------|---------------------------|
+|`gcc`           |Comment line               |
+|`gbc`           |Comment bloc line          |
+|`gcO`           |Comment above              |
+|`gco`           |Comment underneath         |
+|`gcA`           |Comment on right           |
+
+
+|  Surround      |                                   |
+|----------------|-----------------------------------|
+|`yss"`          | Add " - sentence                  |
+|`ysw"`          | Add " - cursor -> word            |
+|`ysW"`          | Add " - cursor -> end sentence    |
+|`ysE"`          | Add " - cursor -> end word        |
+|                |                                   |
+|`ds"`           | Remove "                          |
+|                |                                   |
+|`cs"'`          | Replace " by '                    |
+|`cs([`          | Replace ( by [ with space         |
+|`cs(]`          | Replace ( by [ without space      |
 
 
 | File browser    |                                                                               |
@@ -62,3 +90,5 @@ Enable in terminal options
 | `<C-f>/f`       | Toggle between file and folder browser                                        |
 | `<C-h>/h`       | Toggle hidden files/folders                                                   |
 | `<C-s>/s`       | Toggle all entries ignoring `./` and `../`                                    |
+
+

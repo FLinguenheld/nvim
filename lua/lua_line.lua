@@ -1,31 +1,9 @@
-
--- INDENT BLANK LINE −−-−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-vim.opt.list = true
-vim.opt.listchars:append("space: ")
-vim.opt.listchars:append("eol:↴")
-vim.opt.termguicolors = true
-vim.cmd [[highlight IndentBlanklineIndent1 guifg=#363646 gui=nocombine]] -- Même gris que les line numbers
-
-
-require("indent_blankline").setup {
-
-    char_highlight_list = {
-        "IndentBlanklineIndent1",
-    },
-
-    space_char_blankline = " ",
-    show_current_context = true,
-    -- show_current_context_start = true,
-    -- show_end_of_line = true,
-    use_treesitter = true,
-}
-
-
 -- LUALINE −−−-−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
+    -- theme = 'catppuccin',
     -- theme = 'wombat',
     -- theme = 'material',
 

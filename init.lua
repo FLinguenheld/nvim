@@ -2,15 +2,6 @@
 require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
-	-- Theme and starter
-    use "rebelot/kanagawa.nvim"
-    use 'marko-cerovac/material.nvim'
-	use "projekt0n/github-nvim-theme"
-	use 'goolord/alpha-nvim'                -- A configurer !!!
-	use 'kyazdani42/nvim-web-devicons'      -- Need nerd font like hack
-	use 'nvim-lualine/lualine.nvim'
-	use 'ryanoasis/vim-devicons'            -- Nécessaire ???
-
 	-- TreeSitter
 	use 'nvim-treesitter/nvim-treesitter'
 
@@ -19,16 +10,22 @@ require('packer').startup(function()
 	use 'williamboman/nvim-lsp-installer'   -- :LspInstall
 
 	-- Completion
+	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
-	use 'hrsh7th/nvim-cmp'
+
+    -- For luasnip users.
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'onsails/lspkind-nvim'
 
 	-- Telescope
 	use 'nvim-lua/plenary.nvim'
 	use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-file-browser.nvim'
+    use 'nvim-telescope/telescope-fzy-native.nvim'
 
 	-- Others
 	use 'numToStr/Comment.nvim'                 -- gcc gbc
@@ -38,6 +35,19 @@ require('packer').startup(function()
 	use 'phaazon/hop.nvim'
 
     use "lukas-reineke/indent-blankline.nvim"   -- Affiche l'indentation
+    use 'RRethy/vim-illuminate' -- Illumine le mot (A-n pour aller au suivant)
+    use 'tpope/vim-surround'
+
+    use 'windwp/nvim-autopairs'
+
+
+	-- Theme and starter
+    use 'catppuccin/nvim'
+	use 'goolord/alpha-nvim'
+	use 'kyazdani42/nvim-web-devicons'      -- Need nerd font like hack
+	use 'nvim-lualine/lualine.nvim'
+	use 'ryanoasis/vim-devicons'            -- Nécessaire ???
+
 	end
 )
 
@@ -50,6 +60,9 @@ vim.opt.pumblend = 17
 vim.opt.wildmode = "longest:full"
 vim.opt.wildoptions = "pum"
 
+vim.opt.completeopt = { "menu", "menuone", "noselect" } -- À confirmer
+vim.opt.shortmess:append "c"
+
 -- vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}  -- completion options (for deoplete)
 -- vim.opt.completeopt = {'menu', 'longest', 'preview'}  -- completion options (for deoplete)
 
@@ -59,7 +72,7 @@ vim.opt.wildignore = vim.opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
 
 -- Others
 vim.opt.joinspaces = false              -- no double spaces with join
--- vim.opt.mouse = "nv"                 -- Mouse active in normal & visual 
+-- vim.opt.mouse = "nv"                 -- Mouse active in normal & visual
 vim.opt.cursorline = true
 
 -- Tabs
@@ -99,6 +112,7 @@ vim.cmd[[autocmd FileType * setlocal formatoptions=cqrnj]]
 --  + "r" -- But do continue when pressing enter.
 --  + "n" -- Indent past the formatlistpat, not underneath it.
 --  + "j" -- Auto-remove comments if possible.
+--  + "j" -- Auto-remove comments if possible.
 --  - "2" -- I'm not in gradeschool anymore
 
 
@@ -113,15 +127,25 @@ vim.api.nvim_exec(
 false
 )
 
-require('packages')
 
-require('themes')
-require('theme-kanagawa')
--- require('theme-github')
--- require('theme-material')
+require('tree_sitter')
+require('telescope_conf')
+require('lsp_installer')
+require('lsp_signature')
+
+require('alpha_startup')
+require('auto_save')
+require('cat_ppucin')
+require('comp')
+require('comments')
+require('illuminate_cursor')
+require('auto_pair')
+
+require('hop_hop')
+require('indent_blank_line')
+require('lua_line')
+
 require('keybindings')
-require('alpha-startup')
-
 
 -- -- TEST -−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 -- local function blah()
