@@ -1,5 +1,8 @@
 -- TELESCOPE −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 require("telescope").setup {
+
+
+defaults = { file_ignore_patterns = {"env", "__pycache__"} },
   extensions = {
 
     fzy_native = {
