@@ -25,6 +25,9 @@
 ##### Clipboard
 >sudo dnf install xclip
 
+##### Packer
+>https://github.com/wbthomason/packer.nvim  
+
 ##### Fonts
 Install font nerd (hack)  
 Add hack in ~/.fonts  
@@ -32,9 +35,10 @@ Enable in terminal options
 >https://fedoramagazine.org/add-power-terminal-powerline/  
 >https://github.com/ryanoasis/nerd-fonts  
 >https://stribny.name/blog/2020/04/get-some-beautiful-programming-fonts-for-your-editor-and-terminal-in-fedora/
+>https://github.com/sainnhe/icursive-nerd-font
 
-##### Packer
->https://github.com/wbthomason/packer.nvim  
+##### Kitty
+>https://sw.kovidgoyal.net/kitty/
 
 ##### Help
 >https://gist.github.com/awidegreen/3854277  
@@ -42,7 +46,7 @@ Enable in terminal options
 >https://github.com/ChristianChiarulli/nvim/tree/master/lua/user  
 
 
-****
+***
 #### Keys
 |  Comp            |                           |
 |------------------|---------------------------|
@@ -73,6 +77,16 @@ Enable in terminal options
 |`cs"'`          | Replace " by '                    |
 |`cs([`          | Replace ( by [ with space         |
 |`cs(]`          | Replace ( by [ without space      |
+
+
+|  Trouble            |                           |
+|---------------------|---------------------------|
+|`<leader>xx`         | open trouble              |
+|`<leader>rw`         | workspace diag            |
+|`<leader>xd`         | Document diag             |
+|`<leader>xl`         | Loc list                  |
+|`<leader>xq`         | Quickfix                  |
+|`gR`                 | lsp references            |
 
 
 | File browser    |                                                                               |
