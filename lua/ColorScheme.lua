@@ -1,37 +1,53 @@
-
-local nightfox = require('nightfox')
-
--- This function set the configuration of nightfox. If a value is not passed in the setup function
--- it will be taken from the default configuration above
-nightfox.setup({
-    styles = {
-        comments = "italic",            -- change style of comments to be italic
-        keywords = "bold",              -- change style of keywords to be bold
-        functions = "italic,bold"       -- styles can be a comma separated list
+-- Default options
+require('nightfox').setup({
+  options = {
+    -- Compiled file's destination location
+    -- compile_path = util.join_paths(vim.fn.stdpath("cache"), "nightfox"),
+    compile_file_suffix = "_compiled", -- Compiled file suffix
+    transparent = false,    -- Disable setting background
+    terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*)
+    dim_inactive = false,   -- Non focused panes set to alternative background
+    styles = {              -- Style to be applied to different syntax groups
+      comments = "italic",
+      functions = "italic,bold",
+      keywords = "NONE",
+      numbers = "NONE",
+      strings = "NONE",
+      types = "NONE",
+      variables = "NONE",
     },
-    inverse = {
-        match_paren = true,             -- inverse the highlighting of match_parens
+    inverse = {             -- Inverse highlight for different types
+      match_paren = false,
+      visual = false,
+      search = false,
     },
-    colors = {
-        red = "#FF000",                 -- Override the red color for MAX POWER
-        bg_alt = "#000000",
+    modules = {             -- List of various plugins and additional options
+      -- ...
     },
-    hlgroups = {
-        TSPunctDelimiter = { fg = "${red}" }, -- Override a highlight group with the color red
-        LspCodeLens = { bg = "#000000", style = "italic" },
-    }
+  }
 })
 
+-- setup must be called before loading
+-- vim.cmd("colorscheme nightfox")
+
+
+
 -- CHOIX −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-local nb = 5
+local nb = 0
 
 function up()
     nb =  nb + 1
+    if nb > 6 then
+        nb = 0
+    end 
     updateScheme()
 end
 
 function down()
     nb =  nb - 1
+    if nb < 0 then
+        nb = 6
+    end 
     updateScheme()
 end
 
@@ -40,27 +56,16 @@ vim.api.nvim_set_keymap('n', '<leader>À',  '<cmd>lua down()<CR>', {})
 
 function updateScheme()
 
-    local theme_line
     local hop
     local hopOne
     local hopTwo
 
     -- −−−−−−−−−−−−−−−−−−−
-    if nb <= -1 then
-        nb = 6
-    elseif nb >= 7 then
-        nb = 0
-    end
 
     -- −−−−−−−−−−−−−−−−−−−
     if nb == 0 then
 
-        theme_line = 'wombat'
-
-        nightfox.setup({
-          fox = "nightfox",
-        })
-        nightfox.load()
+        vim.cmd("colorscheme nightfox")
 
         vim.api.nvim_command('highlight HopNextKey      guifg=#F68541       gui=bold')
         vim.api.nvim_command('highlight HopNextKey1     guifg=#41F685       gui=bold')
@@ -71,12 +76,7 @@ function updateScheme()
 
     elseif nb == 1 then
 
-        theme_line = 'wombat'
-
-        nightfox.setup({
-          fox = "nordfox",
-        })
-        nightfox.load()
+        vim.cmd("colorscheme nordfox")
 
         vim.api.nvim_command('highlight HopNextKey      guifg=#FA3F39       gui=bold')
         vim.api.nvim_command('highlight HopNextKey1     guifg=#39FA3F       gui=bold')
@@ -87,12 +87,7 @@ function updateScheme()
 
     elseif nb == 2 then
 
-        theme_line = 'wombat'
-
-        nightfox.setup({
-          fox = "duskfox",
-        })
-        nightfox.load()
+        vim.cmd("colorscheme duskfox")
 
         vim.api.nvim_command('highlight HopNextKey      guifg=#D00688       gui=bold')
         vim.api.nvim_command('highlight HopNextKey1     guifg=#88D006       gui=bold')
@@ -103,12 +98,7 @@ function updateScheme()
 
     elseif nb == 3 then
 
-        theme_line = 'wombat'
-
-        nightfox.setup({
-          fox = "dayfox",
-        })
-        nightfox.load()
+        vim.cmd("colorscheme dayfox")
 
         vim.api.nvim_command('highlight HopNextKey      guifg=#E53730       gui=bold')
         vim.api.nvim_command('highlight HopNextKey1     guifg=#3730E5       gui=bold')
@@ -118,12 +108,8 @@ function updateScheme()
         vim.api.nvim_command('highlight CursorLineNR    guifg=#6080B0       gui=bold')
 
     elseif nb == 4 then
-        theme_line = 'wombat'
 
-        nightfox.setup({
-          fox = "dawnfox",
-        })
-        nightfox.load()
+        vim.cmd("colorscheme dawnfox")
 
         vim.api.nvim_command('highlight HopNextKey      guifg=#EF4D46       gui=bold')
         vim.api.nvim_command('highlight HopNextKey1     guifg=#A146EF       gui=bold')
@@ -133,7 +119,10 @@ function updateScheme()
         vim.api.nvim_command('highlight CursorLineNR    guifg=#286983       gui=bold')
 
     elseif nb == 5 then
-        theme_line = 'ayu_mirage'
+
+        -- require('lualine').setup {
+        --   options = { theme  = 'ayu_mirage' },
+        -- }
 
         vim.o.background = 'dark'
         vim.cmd("colorscheme melange")
@@ -146,7 +135,10 @@ function updateScheme()
         vim.api.nvim_command('highlight CursorLineNR    guifg=#CC7F2B    gui=bold')
 
     else
-        theme_line = 'ayu_light'
+
+        -- require('lualine').setup {
+        --   options = { theme  = 'ayu_light' },
+        -- }
 
         vim.o.background = 'light'
         vim.cmd("colorscheme melange")
@@ -161,9 +153,6 @@ function updateScheme()
     end 
 
     -- −−−−−−−−−−−−−−−−−−−
-    require('lualine').setup {
-      options = { theme  = theme_line },
-    }
 
 
     -- vim.api.nvim_command('highlight HopNextKey      guifg=hop       gui=bold')

@@ -37,8 +37,9 @@ keymap("x", "<M-up>",   ":move '<-2<CR>gv-gv", opt)
 keymap('t', '<ESC>', '<C-\\><C-n>', opt)
 
 -- Clipboard −−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
-keymap('',  '<C-c>',		'"+y', opt)		-- Copy nvim to desk clipboard
-keymap('n', '<C-P>',		'"*p', opt)		-- Past from desk to nvim
+-- Faits avec Kitty
+keymap('',  '<C-y>',		'"+y', opt)		-- Copy nvim to desk clipboard
+-- keymap('n', '<C-P>',		'"*p', opt)		-- Past from desk to nvim
 
 keymap('n', '<leader>p',	'"1p', opt)
 keymap('n', '<leader>P',	'"2p', opt)
