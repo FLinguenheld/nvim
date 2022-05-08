@@ -60,6 +60,8 @@ keymap('n', '<C-right>',	'<C-w>l<CR>', opt)
 -- Recherche dossier courant
 keymap('n', '<leader>ff',	'<cmd>lua FindFiles_Current()<CR>', opt)
 keymap('n', '<leader>fF',	'<cmd>lua FindFiles_1()<CR>', opt)
+keymap('n', '<leader>Ff',	'<cmd>lua FindFiles_2()<CR>', opt)
+keymap('n', '<leader>FF',	'<cmd>lua FindFiles_3()<CR>', opt)
 
 -- Recherche home
 keymap('n', '<leader>fç',	'<cmd>lua FindFiles_Home(false)<CR>', opt)

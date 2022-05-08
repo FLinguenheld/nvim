@@ -43,6 +43,19 @@ function FindFiles_1()
     }
 end
 
+function FindFiles_2()
+    require('telescope.builtin').find_files{
+        cwd =  vim.fn.expand('%:p:h:h:h'),
+        prompt_title = string.format("Recherche (-1): %s/", vim.fn.expand('%:p:h:h:h')),
+    }
+end
+function FindFiles_3()
+    require('telescope.builtin').find_files{
+        cwd =  vim.fn.expand('%:p:h:h:h:h'),
+        prompt_title = string.format("Recherche (-1): %s/", vim.fn.expand('%:p:h:h:h:h')),
+    }
+end
+
 function FindFiles_Home(hidden_file)
     require('telescope.builtin').find_files{
         cwd =  vim.fn.expand(os.getenv("HOME")),
