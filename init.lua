@@ -29,6 +29,9 @@ require('packer').startup(function()
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'nvim-telescope/telescope-fzy-native.nvim'
 
+    -- Test tree
+    use 'kyazdani42/nvim-tree.lua'
+
     -- Others
     use 'numToStr/Comment.nvim'                 -- gcc gbc
     use 'Pocco81/AutoSave.nvim'
@@ -48,7 +51,10 @@ require('packer').startup(function()
     use 'kyazdani42/nvim-web-devicons'      -- Need nerd font like hack
     use 'nvim-lualine/lualine.nvim'
     use 'ryanoasis/vim-devicons'            -- Nécessaire ???
+    use { 'lalitmee/cobalt2.nvim', requires = 'tjdevries/colorbuddy.nvim' }
 
+    -- use 'sunjon/shade.nvim'
+    use 'norcalli/nvim-colorizer.lua'
     end
 )
 
@@ -143,8 +149,14 @@ require('IndentBlankLine')
 require('LuaLine')
 require('Hop')
 require('ColorScheme')
+require('Shade')
 
 require('Keybindings')
+
+
+-- −−−−−−−−−−−−−−−−−−−−−−−−−−
+require'nvim-tree'.setup {}
+require'colorizer'.setup()
 
 -- -- TEST -−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
 -- local function blah()

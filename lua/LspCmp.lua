@@ -62,20 +62,44 @@ cmp.setup.cmdline(':', {
 })
 
   -- Setup lspconfig.
+  -- SEE ILLUMINATE TO ALLOW MOVES
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['pyright'].setup {
-    capabilities = capabilities
-  }
+  -- require('lspconfig')['pyright'].setup {
+  --   capabilities = capabilities,
+  -- }
+  -- require('lspconfig')['pylsp'].setup {
+  --   capabilities = capabilities,
+  -- -- filetypes = {"python"},
+
+  -- }
+
+require'lspconfig'.pylsp.setup{
+
+    capabilities = capabilities,
+settings = {
+            pylsp = {
+                plugins = {
+                    configurationSources = { "flake8", "mypy", "pycodestyle" },
+                    -- flake8 = { enabled = false},
+                    mypy = { enabled = true },
+                    pycodestyle= {enabled = true,
+                                  maxLineLength=118,
+                                  ignore={'E127'},
+                                  -- ignore={'E302', 'E127', 'E501'},
+                                 },
+                    pyflakes = {enabled=true},
+                },
+            },
+        },
+
+}
+
   require('lspconfig')['emmet_ls'].setup {
-    capabilities = capabilities
-  }
-  require('lspconfig')['sourcery'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    filetypes = { "html", "htmldjango", "css", "typescriptreact", "javascriptreact" },
   }
   require('lspconfig')['sumneko_lua'].setup {
     capabilities = capabilities
   }
-  require('lspconfig')['tailwindcss'].setup {
-    capabilities = capabilities
-  }
+
