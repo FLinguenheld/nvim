@@ -6,44 +6,44 @@
 #### Requirements
 
 ##### Python/Pip
->sudo dnf install python3-pip  
->pip install --user --upgrade pynvim  
->pip install neovim
+    sudo dnf install python3-pip  
+    pip install --user --upgrade pynvim  
+    pip install neovim
 
 ##### Nodejs
->sudo dnf install  nodejs  
->sudo npm install -g neovim
+    sudo dnf install  nodejs  
+    sudo npm install -g neovim
 
 ##### Treesitter
->sudo dnf groupinstall 'Development Tools'  
->sudo dnf install gcc-c++
+    sudo dnf groupinstall 'Development Tools'  
+    sudo dnf install gcc-c++
 
 ##### Telescope
->sudo dnf install ripgrep  
->sudo dnf install fd-find
+    sudo dnf install ripgrep  
+    sudo dnf install fd-find
 
 ##### Clipboard
->sudo dnf install xclip
+    sudo dnf install xclip
 
 ##### Packer
->https://github.com/wbthomason/packer.nvim  
+    https://github.com/wbthomason/packer.nvim  
 
 ##### Fonts
 Install font nerd (hack)  
 Add hack in ~/.fonts  
 Enable in terminal options
->https://fedoramagazine.org/add-power-terminal-powerline/  
->https://github.com/ryanoasis/nerd-fonts  
->https://stribny.name/blog/2020/04/get-some-beautiful-programming-fonts-for-your-editor-and-terminal-in-fedora/
->https://github.com/sainnhe/icursive-nerd-font
+    https://fedoramagazine.org/add-power-terminal-powerline/  
+    https://github.com/ryanoasis/nerd-fonts  
+    https://stribny.name/blog/2020/04/get-some-beautiful-programming-fonts-for-your-editor-and-terminal-in-fedora/
+    https://github.com/sainnhe/icursive-nerd-font
 
 ##### Kitty
->https://sw.kovidgoyal.net/kitty/
+    https://sw.kovidgoyal.net/kitty/
 
 ##### Help
->https://gist.github.com/awidegreen/3854277  
->https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim  
->https://github.com/ChristianChiarulli/nvim/tree/master/lua/user  
+    https://gist.github.com/awidegreen/3854277  
+    https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim  
+    https://github.com/ChristianChiarulli/nvim/tree/master/lua/user  
 
 
 ***
